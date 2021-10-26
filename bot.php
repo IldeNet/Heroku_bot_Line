@@ -1,10 +1,4 @@
 <?php
-/*
-copyright @ medantechno.com
-2017
-
-*/
-
 require_once('./line_class.php');
 
 $channelAccessToken = '5Be/XeUn1YJz8zCv7liKBz3+Me9uJiYus8JWtCXmY2ekGWpybIxFTrO77TKoLe8hLWr4QQ6yRV9pjuw2J+RVXujhFrhh3XbaIsSfgOpJB5zc20Ms0jF527PWKxZS+sKDAkfVQ/c6rwol6uUgtQD8TwdB04t89/1O/w1cDnyilFU='; 
