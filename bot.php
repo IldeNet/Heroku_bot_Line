@@ -83,9 +83,33 @@ $msg = strtolower($msg);
 
 
 //pruebas
+if($type == 'memberJoined' ) // Si alguien entra
+{	
+
+$welcome_array = array(' 🎊🎉🎊🎉 Los que van a pelear te saludan 🙋', ' Pasa y sientate, que has llegado al sitio adecuado', ' Tenemos un pedazo de fiesta montada del copon, espero que traigas cervezas!.', ' Pero si contigo hice yo la comunion!! que pasa fenomeno?', ' que alegria verte por aqui, pasa pasa', ' es muy buena gente... si vas a la cocina trae cervezas para todos! ', 'Cambiad de tema 	que se puede liar.  ');
+$welcome_rnd = array_rand($welcome_array, 2);
+	$balas = array(	
+                            'replyToken' => $replyToken,							
+							'messages' => array(
+								array(
+										'type' => 'text',									
+										'text' => 'Bienvenid@'.$welcome_array[$welcome_rnd[0]]	
+									
+									)
+							)
+						);
+						
+}
 if($message['type']=='text')
-{
-	if($msg =='version')
+{	if(strpos($msg,'ilde') !== false)
+	{
+	
+	$page = file_get_contents("https://api.telegram.org/bot385985238:AAGmaeQ_JLhj6QDJ4Y9B7GGpTlEYDyC8qiw/sendmessage?chat_id=7566957&parse_mode=html&text=<b>Nombrado por ".$roomId."/".$grupo."/".$nombre.": </b>".$pesan_datang); 
+
+	echo $page;
+
+	}
+	else if($msg =='version')
 	{
 		
 		
@@ -94,7 +118,7 @@ if($message['type']=='text')
 							'messages' => array(
 								array(
 										'type' => 'text',					
-										'text' => 'version 0.5 by IldeNet'
+										'text' => 'version 1.0 Heroku by IldeNet'
 									)
 							)
 						);
@@ -136,13 +160,29 @@ if($message['type']=='text')
 						);
 				
 	}
-	
+	elseif(strpos($msg,'/di') !== false) 
+	{
+	$decir = str_replace("/di ","", $msg);
+	$decir2 = str_replace(" ","%20", $decir);
+    $uri = "https://translate.google.com/translate_tts?ie=UTF-8&tl=es-ID&client=tw-ob&q=".$decir2; 
+
+        $balas = array(
+            'replyToken' => $replyToken,
+            'messages' => array(
+				array (
+				'type' => 'audio',
+				'originalContentUrl' => $uri,
+				'duration' => 60000,
+				)
+            )
+        );
+}
 	elseif(strpos($msg,'/meme') !== false)
 	{
 	$meme = str_replace("/meme ","", $msg);
 	$meme2 = str_replace(" ","%20", $meme);
 
-	$urlmeme = "https://infernus.000webhostapp.com/cocbot/meme?bottom_text=".$meme2;
+	$urlmeme = "https://ildenet.000webhostapp.com/memes/?bottom_text=".$meme2;
 // acortando url
 	$get_sub = array();
 			$aa =   array(
@@ -377,7 +417,7 @@ if($message['type']=='text')
 }}
 	else if(strpos($msg,'buenos dias') !== false)
 	{
-		$bdias_array = array("Buenos dias", "Buen dia", "Que tal estas?", "A la paz de dios, hermano", "Bienaventurado quien te puede saludar");
+		$bdias_array = array("Buenos dias", "Buen dia", "Que tal estas?", "Buenos dias Matias... digo...", "A quien madruga, Dios le ayuda", "Hoy es el día más bonito de mi vida, pero el de mañana seguro será mucho mejor", "Buenos dias, parece que va a llover", "Mira que dia hace para comérselo entero!",  "good morning!", "Buenos dias, que mas pillao que voy camino al curro.","Su tabaco, Gracias", "A la paz de dios, hermano", "Saludos desde mi trono, dame un segundo que ya sale un Obama!", "Ha repostado Diesel E plus 10", "Bienaventurado quien te puede saludar", "Mira qué buena porra traigo para desayunar", "Buenos Días y Mucho Ánimo que ya casi es viernes", "Bueno días!! Hoy he pospuesto la alarma 10 minutos y ahora voy justo...", "Buenos dias, otro día que no nos ha tocado la lotería", "Vamos equipo! A ganarnos nuestro cuenco de arroz de hoy!!", "Vamos a levantar este pais. BUENOS DIAS!!!", "Otro ddia mas que voy con la hora pegada al culo", "Venga, vamos a desayunar que invito yo", "Hace mas calor que alicatando una pirádime", "Hace mas frio que vigilando una obra en Burgos", "Hay mas gente aqui que en el comedor de Harry Poter", "Uff voy tan ciego que Stevie Wonder a mi lao tenía la vista cansá", "Vamos que me levantao mas fuerte que el televisor de un asilo", "Buenos dias, hoy estoy mas contento que el bidé de Elsa Pataky", "Buenos dias, tengo menos ganas de trabajar que el fotógrafo de la biblia", "Menuda cara que llevo hoy, que parezco un bulldog masticando una avispa", "Buenos dias, recuerda que no debes tener apuro, que aqui abajo tengo turron del duro");
 		$bdias_rnd = array_rand($bdias_array, 2);		
 		$balas = array(
 							'replyToken' => $replyToken,														
