@@ -1,18 +1,18 @@
 <?php
 require_once('./line_class.php');
 
-$channelAccessToken = 'lPinXhltz3jGNZfA19qWIxvV2E70Pdc5d/UWYHm01PCApD6siIl8Z9AtssDpmkzvXcUTFw5zN3nJQDdUTDsrpAVG9IkgSfC1PtzhdNvu9NUSqLlCftI3kieQRGdwmVH+anViiTjFnCkhY8KxTCX30gdB04t89/1O/w1cDnyilFU='; 
-$channelSecret = '241de8e9ee96cfde016ca29b1d6cf986';
+$channelAccessToken = 'lPinXhltz3jGNZfA19qWIxvV2E70Pdc5d/UWYHm01PCApD6siIl8Z9AtssDpmkzvXcUTFw5zN3nJQDdUTDsrpAVG9IkgSfC1PtzhdNvu9NUSqLlCftI3kieQRGdwmVH+anViiTjFnCkhY8KxTCX30gdB04t89/1O/*******'; 
+$channelSecret = '241de8e9ee96cfde016ca29b1d6*****';
 
 $clientLine = new LINEBotTiny($channelAccessToken, $channelSecret);
 
 // TWITTER
 include "twitteroauth/twitteroauth.php";
 
-$consumer_key = "ezwePFtR6u8lPb73mwDpxSnnZ";
-$consumer_secret = "CeBdh5bsrp0b8WNM8MlMxmtQXTZi9QcibVliLCSx3KHNmSPkvW";
-$access_token = "240274459-rpMyufsBujrsKN6oGhqvEB5MPlNvqbjIeubfLIqS";
-$access_token_secret = "fWZ94qPrbNSqUofi6nVYwOvNeZKlcx9mA0eMoBuKDIXdb";
+$consumer_key = "ezwePFtR6u8lPb73*";
+$consumer_secret = "CeBdh5bsrp0b8WNM8MlMxmtQXTZi9Q*";
+$access_token = "240274459-rpMyufsBujrsKN6oGhqvEB5M*";
+$access_token_secret = "fWZ94qPrbNSqUofi6nVYwOvNeZK*";
 
 $twitter = new TwitterOAuth($consumer_key,$consumer_secret,$access_token,$access_token_secret);
 
@@ -104,7 +104,7 @@ if($message['type']=='text')
 {	if(strpos($msg,'ilde') !== false)
 	{
 	
-	$page = file_get_contents("https://api.telegram.org/bot385985238:AAGmaeQ_JLhj6QDJ4Y9B7GGpTlEYDyC8qiw/sendmessage?chat_id=7566957&parse_mode=html&text=<b>Nombrado por ".$roomId."/".$grupo."/".$nombre.": </b>".$pesan_datang); 
+	$page = file_get_contents("https://api.telegram.org/bot385985238:AAGmaeQ_JLhj6QDJ/sendmessage?chat_id=7566957&parse_mode=html&text=<b>Nombrado por ".$roomId."/".$grupo."/".$nombre.": </b>".$pesan_datang); 
 
 	echo $page;
 
@@ -370,7 +370,7 @@ if($message['type']=='text')
 	elseif(strpos($pesan_datang,'/tiempo') !== false)
 	{
 	$tiempo = str_replace("/tiempo ","", $pesan_datang);
-	$keyw ='4ca900e41c35661c12dd0099b946273f';
+	$keyw ='4ca900e41c35661c12d*';
 	$weather = "http://api.openweathermap.org/data/2.5/weather?q=".$tiempo."&lang=es&units=metric&APPID=".$keyw; 
 	$weatherp= "http://api.openweathermap.org/data/2.5/forecast?q=".$tiempo."&lang=es&units=metric&APPID=".$keyw;
 	$contents = file_get_contents($weather); 
